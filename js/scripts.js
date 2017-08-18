@@ -3,12 +3,16 @@ var Consonant = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q"
 var ayArray=["ay"];
 var word = [];
 
-function pigLatinSorting (pigUserInputJs) {
-  var lowerCasePigUserInputJs = PigUserInputJs.toLowerCase();
-  var word = lowerCasePigUserInputJs.split(" ");
-  var firstChar = word.charAt(0);
+var pigLatinSorting = function (pigUserInputJs) {
+  var lowerCasePigUserInputJs = pigUserInputJs.toLowerCase();
+  word = lowerCasePigUserInputJs.split(" ");
+  alert(word);
+  var arrayWithWords = word[0];
+  var firstChar = arrayWithWords[0]
+
   if (firstChar === vowelArray[0] || firstChar === vowelArray[1] || firstChar === vowelArray[2] || firstChar === vowelArray[3] || firstChar === vowelArray[4] || firstChar === vowelArray[5]) {
     word = word.concat(ayArray);
+    alert(arrayWithWords[0]);
   }
 
 
@@ -18,7 +22,7 @@ function pigLatinSorting (pigUserInputJs) {
 
 
 }
-
+console.log();
 
 
 
@@ -27,7 +31,8 @@ $(document).ready (function () {
   event.preventDefault();
   var pigUserInputJs = $("input#pigUserInput").val();
   $(".pig-output").text(pigUserInputJs);
-  $(".pig-output2").text(word);
+  var outputFromJS = pigLatinSorting(pigUserInputJs);
+  $(".pig-output2").append(outputFromJS);
   // alert(pigUserInputJs);
 
   });
